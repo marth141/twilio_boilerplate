@@ -1,4 +1,4 @@
-# Twilio Example
+# Twilio Phoenix 1.6.x Liveview Example
 
 ## The important stuff
 * [apps/phone/lib/phone.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/phone/lib/phone.ex)
