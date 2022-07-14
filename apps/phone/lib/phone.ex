@@ -28,23 +28,23 @@ defmodule Phone do
     Application.fetch_env!(:phone, :workspace_sid)
   end
 
-  # Defines some Twiml app to handle the call
-  # Some controller endpoint to handle that should be defined
+  # Gets an outbound access token for the Twilio Device in app.js
   def fetch_outgoing_access_token() do
     ExTwilio.Capability.new()
     |> ExTwilio.Capability.allow_client_outgoing(Application.get_env(:phone, :twiml_app_sid))
     |> ExTwilio.Capability.token()
   end
 
-  # Defines some entity to handle an incoming call
-  # Configed online at Twilio in Phone Number for when Twilio Number is called
+  # Gets an inbound access token for the Twilio Device in app.js
   def fetch_incoming_access_token() do
     ExTwilio.Capability.new()
     |> ExTwilio.Capability.allow_client_incoming("jenny")
     |> ExTwilio.Capability.token()
   end
 
-  # Combination of outgoing and incoming
+  # Combination of outbound and inbound access token for the Twilio Device in app.jsDefines some entity to handle an incoming call
+39
+  # Configed online at Twilio in Phone Number for when Twilio Number is called
   def fetch_full_access_token() do
     ExTwilio.Capability.new()
     |> ExTwilio.Capability.allow_client_incoming("jenny")
