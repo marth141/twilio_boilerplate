@@ -32,7 +32,6 @@ Hooks.Phone = {
     number() { return this.el.dataset.number },
     token() { return this.el.dataset.token },
     mounted() {
-        console.log("mounted");
         /* Set up Twilio device with token */
         const Device = new Twilio.Device(this.token())
         /* Let us know when the client is ready. */
