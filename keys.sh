@@ -1,0 +1,5 @@
+#!/bin/bash
+export TWILIO_ACCOUNT_SID=
+export TWILIO_AUTH_TOKEN=
+export TWILIO_WORKSPACE_SID=
+export TWIML_APP_SID=
