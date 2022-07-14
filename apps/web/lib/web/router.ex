@@ -13,10 +13,6 @@ defmodule Web.Router do
     plug :fetch_current_user
   end
 
-  pipeline :twilio do
-    # I don't know what I'm doing here
-  end
-
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -30,8 +26,12 @@ defmodule Web.Router do
   scope "/twilio", Web do
     # Here I would pipe through a plug pipeline
     # But it seems to just continue refreshing like mad
-    pipe_through :twilio
+    pipe_through :browser
     live "/", TwilioLive.Index, :index
+  end
+
+  scope "/twilio/api", Web do
+    pipe_through :api
     # add a queue
     # Configed online at Twilio in Phone Number for when Twilio Number is called
     post "/queue", TwilioController, :queue
