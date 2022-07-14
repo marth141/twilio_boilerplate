@@ -2,12 +2,6 @@ defmodule Web.TwilioController do
   use Web, :controller
   import Plug.Conn
 
-  def show(conn, _params) do
-    token = Phone.fetch_full_access_token()
-
-    render(conn, "show.html", token: token)
-  end
-
   # To play something back to a caller. Used an MP3
   # Configed online at Twilio in Twiml App for when Call Button is pressed
   def mp3(conn, _params) do
