@@ -11,9 +11,6 @@ defmodule Web.TwilioController do
   # To play something back to a caller. Used an MP3
   # Configed online at Twilio in Twiml App for when Call Button is pressed
   def mp3(conn, _params) do
-    IO.inspect(conn)
-    # send_resp(conn, 201, "")
-
     conn =
       conn
       |> put_resp_content_type("audio/mpeg")
@@ -36,8 +33,6 @@ defmodule Web.TwilioController do
   # For behaving like an IVR
   # Configed online at Twilio in Phone Number for when Twilio Number is called
   def ivr_welcome(conn, _params) do
-    IO.inspect(conn)
-
     resp = Phone.phone_tree(conn)
 
     conn
