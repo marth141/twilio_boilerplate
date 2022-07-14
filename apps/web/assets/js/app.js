@@ -54,7 +54,7 @@ Hooks.Phone = {
         Device.register()
 
         document.getElementById("call").addEventListener("click", e => {
-            Device.connect({ params: { To: "+15551234567" } });
+            Device.connect({ params: { dial: this.number() } });
         })
         document.getElementById("hangup").addEventListener("click", e => {
             Device.disconnectAll();
