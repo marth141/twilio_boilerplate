@@ -31,7 +31,7 @@ defmodule Web.Router do
 
   scope "/twilio/api", Web do
     pipe_through :api
-    # add a queue
+    # To have waiting queue
     # Configed online at Twilio in Phone Number for when Twilio Number is called
     post "/queue", TwilioController, :queue
     # To make a call and get some MP3 response
@@ -43,8 +43,8 @@ defmodule Web.Router do
     # To receive a call and have a 2 way call
     # Configed online at Twilio in Phone Number for when Twilio Number is called
     post "/receive", TwilioController, :receive
-    # to behave like an IVR
-    # Configed online at Twilio in Twiml App for when Twilio Number is called
+    # To behave like an IVR
+    # Configed online at Twilio in Twiml App and Phone Number
     post "/ivr/welcome", TwilioController, :ivr_welcome
   end
 
