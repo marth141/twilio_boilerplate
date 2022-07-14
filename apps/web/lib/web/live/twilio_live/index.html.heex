@@ -1,46 +1,5 @@
 <script type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<%# Can import Twilio with app.js %>
-<%# <script type="text/javascript"
-  src="/assets/twilio.js"></script> %>
-<script type="text/javascript">
-  /* Create the Client with a Capability Token */
-  // const Device = new Twilio.Device("<%= @token %>");
-
-  // /* Let us know when the client is ready. */
-  // Device.addListener("registered", function (device) {
-  //     $("#log").text("Ready");
-  // });
-
-  // /* Report any errors on the screen */
-  // Device.addListener("error", function (error) {
-  //     $("#log").text("Error: " + error.message);
-  // });
-
-  // /* To handle an incoming call */
-  // Device.addListener("incoming", function (call) {
-  //     $("#log").text("Incoming connection from " + call.parameters.From);
-  //     call.accept()
-  // })
-
-  // Device.register()
-
-  // /* Connect to Twilio when we call this function. */
-  // function call() {
-  //     Device.connect({ params: { dial: "<%= @number %>" } });
-  // }
-
-  // /* A function to end a connection to Twilio. */
-  // function hangup() {
-  //     Device.disconnectAll();
-  // }
-</script>
-<%# without phoenix hook %>
-<%# <button class="call" onclick="call();">Call</button>
-<button class="hangup" onclick="hangup();">
-  Hangup
-</button> %>
-<%# with phoenix hook %>
 <div id="phone" phx-hook="Phone" data-number={@number} data-token={@token}>
   <button id="call">Call</button>
   <button id="hangup" class="hangup">
