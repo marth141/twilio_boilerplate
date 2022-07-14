@@ -38,23 +38,22 @@ Hooks.Phone = {
         Device.addListener("registered", function (device) {
             $("#log").text("Ready");
         });
-
         /* Report any errors on the screen */
         Device.addListener("error", function (error) {
             $("#log").text("Error: " + error.message);
         });
-
         /* Handle when a call is incoming */
         Device.addListener("incoming", function (call) {
             $("#log").text("Incoming connection from " + call.parameters.From);
             call.accept()
         })
-
+        /* Registers twilio device */
         Device.register()
-
+        /* Adds click event listener to call button */
         document.getElementById("call").addEventListener("click", e => {
             Device.connect({ params: { dial: this.number() } });
         })
+        /* Adds click event listener to hangup button */
         document.getElementById("hangup").addEventListener("click", e => {
             Device.disconnectAll();
         })
