@@ -42,9 +42,7 @@ defmodule Phone do
     |> ExTwilio.Capability.token()
   end
 
-  # Combination of outbound and inbound access token for the Twilio Device in app.jsDefines some entity to handle an incoming call
-39
-  # Configed online at Twilio in Phone Number for when Twilio Number is called
+  # Combination of outbound and inbound access token for the Twilio Device in app.js
   def fetch_full_access_token() do
     ExTwilio.Capability.new()
     |> ExTwilio.Capability.allow_client_incoming("jenny")
@@ -52,6 +50,7 @@ defmodule Phone do
     |> ExTwilio.Capability.token()
   end
 
+  # Builds Twiml to route a call to the "jenny" incoming client
   def receiver_jenny() do
     import ExTwiml
 
@@ -62,6 +61,7 @@ defmodule Phone do
     end
   end
 
+  # Builds Twiml for dialing a specified number
   def dial(number) do
     import ExTwiml
 
@@ -71,6 +71,7 @@ defmodule Phone do
     end
   end
 
+  # Builds Twiml for a phone tree
   def phone_tree(conn) do
     import ExTwiml
 
@@ -107,6 +108,7 @@ defmodule Phone do
     end
   end
 
+  # Builds Twiml for detailing a queue
   def queue() do
     import ExTwiml
 
