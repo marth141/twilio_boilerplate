@@ -24,9 +24,8 @@ defmodule Web.Router do
   end
 
   scope "/twilio", Web do
-    # Here I would pipe through a plug pipeline
-    # But it seems to just continue refreshing like mad
     pipe_through :browser
+
     live "/", TwilioLive.Index, :index
   end
 
