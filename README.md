@@ -1,4 +1,4 @@
-# Twilio Phoenix 1.6.x Liveview Example
+# Twilio with Phoenix 1.6.x Liveview Example
 
 ## The important stuff
 * [config/dev.secrets.exs](https://github.com/marth141/twilio_boilerplate/blob/master/config/dev.secrets.exs)
