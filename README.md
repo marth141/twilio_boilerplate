@@ -15,7 +15,7 @@
   * Creates a Phone phoenix hook
   * Twilio device setup detailed
 * [apps/web/lib/web/live/twilio_live/index.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/live/twilio_live/index.ex)
-  * The liveview controller adding state such as a phone number to dial and tokens
+  * The liveview webpage controller adding state such as a phone number to dial and tokens
 * [apps/web/lib/web/live/twilio_live/index.html.heex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/live/twilio_live/index.html.heex)
   * The webpage where magic happens
 
