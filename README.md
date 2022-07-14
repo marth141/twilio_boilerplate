@@ -1,6 +1,9 @@
 # Twilio Phoenix 1.6.x Liveview Example
 
 ## The important stuff
+* [config/dev.secrets.exs](https://github.com/marth141/twilio_boilerplate/blob/master/config/dev.secrets.exs)
+  * Where the secret auth tokens from Twilio get captured
+  * Set as system envs e.g. `export TWILIO_ACCOUNT_SID = blahblahblah`
 * [apps/phone/lib/phone.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/phone/lib/phone.ex)
   * Mostly provides twiml and access tokens with ex_twilio and ex_twiml
 * [apps/web/lib/web/router.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/router.ex)
