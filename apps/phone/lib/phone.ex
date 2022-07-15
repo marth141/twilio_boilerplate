@@ -108,12 +108,23 @@ defmodule Phone do
     end
   end
 
-  # Builds Twiml for detailing a queue
-  def queue() do
+  # Builds Twiml for implementing a queue
+  def enqueue() do
     import ExTwiml
 
     twiml do
       enqueue("support")
+    end
+  end
+
+  # Builds Twiml for working a queue
+  def queue(queue) do
+    import ExTwiml
+
+    twiml do
+      dial do
+        queue(queue)
+      end
     end
   end
 end

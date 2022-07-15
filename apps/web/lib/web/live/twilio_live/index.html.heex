@@ -1,8 +1,13 @@
 <script type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<div id="phone" phx-hook="Phone" data-number={@number} data-token={@token}>
-  <button id="call">Call</button>
-  <button id="hangup" class="hangup">
+<div id="phone" phx-hook="Phone" data-number={@number} data-token={@token} data-queue={@queue}>
+  <button id="call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Call
+  </button>
+  <button id="work-queue" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Work Queue
+  </button>
+  <button id="hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
     Hangup
   </button>
 </div>

@@ -35,7 +35,7 @@ defmodule Web.TwilioController do
   end
 
   # For dialing a number from the Device.connect parameters
-  # Configured in twilio index.html.heex
+  # Configured in twilio app.js
   def dial(conn, params) do
     number = params["dial"]
     resp = Phone.dial(number)
@@ -45,10 +45,21 @@ defmodule Web.TwilioController do
     |> text(resp)
   end
 
-  # Adds a phone queue
+  # Enqueues a caller
   # Configed online at Twilio in Phone Number for when Twilio Number is called
-  def queue(conn, _params) do
-    resp = Phone.queue()
+  def enqueue(conn, _params) do
+    resp = Phone.enqueue()
+
+    conn
+    |> put_resp_content_type("text/xml")
+    |> text(resp)
+  end
+
+  # For dialing a queue from the Device.connect parameters
+  # Configured in twilio app.js
+  def queue(conn, params) do
+    number = params["dial"]
+    resp = Phone.queue(number)
 
     conn
     |> put_resp_content_type("text/xml")

@@ -31,6 +31,7 @@ let Hooks = {}
 Hooks.Phone = {
     number() { return this.el.dataset.number },
     token() { return this.el.dataset.token },
+    queue() { return this.el.dataset.queue },
     mounted() {
         /* Set up Twilio device with token */
         const Device = new Twilio.Device(this.token())
@@ -56,6 +57,10 @@ Hooks.Phone = {
         /* Adds click event listener to hangup button */
         document.getElementById("hangup").addEventListener("click", e => {
             Device.disconnectAll();
+        })
+        /* Adds click event listener to work queue button */
+        document.getElementById("work-queue").addEventListener("click", e => {
+            Device.connect({ params: { dial: this.queue() } });
         })
     }
 }

@@ -8,6 +8,7 @@ defmodule Web.TwilioLive.Index do
     {:ok,
      socket
      |> assign(number: "+16054756962")
+     |> assign(queue: "support")
      |> assign(token: token)}
   end
 end

@@ -31,7 +31,10 @@ defmodule Web.Router do
 
   scope "/twilio/api", Web do
     pipe_through :api
-    # To have waiting queue
+    # When dialed, will enqueue the caller
+    # Configed online at Twilio in Phone Number for when Twilio Number is called
+    post "/enqueue", TwilioController, :enqueue
+    # When dialed, will allow an agent to answer a queue'd call
     # Configed online at Twilio in Phone Number for when Twilio Number is called
     post "/queue", TwilioController, :queue
     # To make a call and get some MP3 response
