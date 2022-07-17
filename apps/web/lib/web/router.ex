@@ -35,7 +35,7 @@ defmodule Web.Router do
     # Configed online at Twilio in Phone Number for when Twilio Number is called
     post "/enqueue", TwilioController, :enqueue
     # When dialed, will allow an agent to answer a queue'd call
-    # Configed online at Twilio in Phone Number for when Twilio Number is called
+    # Configed online at Twilio in Twiml App for when Work Queue Button is pressed
     post "/queue", TwilioController, :queue
     # To make a call and get some MP3 response
     # Configed online at Twilio in Twiml App for when Call Button is pressed

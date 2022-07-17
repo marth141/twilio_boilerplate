@@ -19,6 +19,14 @@
 * [apps/web/lib/web/live/twilio_live/index.html.heex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/live/twilio_live/index.html.heex)
   * The webpage where magic happens
 
+In Twilio's online console, for voice you can configure Voice Twiml App "request url" webhook or Phone Number "A call comes in" webhook.
+
+The "Twiml App Request URL Webhook" is good for stuff where you have a webpage with a click to call button. The request will be handled by an endpoint on this server that returns Twiml. "twilio/api/dial" returns some dial Twiml.
+
+The "A Call Comes in Webhook" is good for when you have a phone number that you want handled in some way by your server. For example, "twilio/api/ivr/welcome" will get someone to a phone tree for the "ET Phone Home Service".
+
+Interesting ways of utilizing endpoints on the phone server emerge with the examples here.
+
 ## Why?
 So I have been working at a solar company since 2020 and had been seeing tons of problems with their CRM stuff. I had figured that I could build my own CRM with a database and a server. However, one critical business piece for a lot of businesses is the phone system. They want voice and SMS. The voice part is tricky.
 
