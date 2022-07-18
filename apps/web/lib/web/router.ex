@@ -45,7 +45,7 @@ defmodule Web.Router do
     post "/dial", TwilioController, :dial
     # To receive a call and have a 2 way call
     # Configed online at Twilio in Phone Number for when Twilio Number is called
-    post "/receive", TwilioController, :receive_call
+    post "/receive_call", TwilioController, :receive_call
     # To behave like an IVR
     # Configed online at Twilio in Twiml App and Phone Number
     post "/ivr/welcome", TwilioController, :ivr_welcome
