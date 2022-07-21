@@ -16,7 +16,7 @@ defmodule Web.TwilioController do
 
   # For having someone receive a call
   # Configed online at Twilio in Phone Number for when Twilio Number is called
-  def receive(conn, _params) do
+  def receive_call(conn, _params) do
     resp = Phone.receiver_jenny()
 
     conn
