@@ -65,4 +65,12 @@ defmodule Web.TwilioController do
     |> put_resp_content_type("text/xml")
     |> text(resp)
   end
+
+  def sms(conn, _params) do
+    IO.inspect(conn)
+
+    conn
+    |> put_resp_content_type("application/json")
+    |> json(:ok)
+  end
 end

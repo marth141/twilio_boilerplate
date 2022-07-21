@@ -17,15 +17,15 @@ defmodule Phone do
   end
 
   def fetch_account_sid() do
-    Application.fetch_env!(:phone, :account_sid)
+    Application.fetch_env!(:ex_twilio, :account_sid)
   end
 
   def fetch_auth_token() do
-    Application.fetch_env!(:phone, :auth_token)
+    Application.fetch_env!(:ex_twilio, :auth_token)
   end
 
   def fetch_workspace_sid() do
-    Application.fetch_env!(:phone, :workspace_sid)
+    Application.fetch_env!(:ex_twilio, :workspace_sid)
   end
 
   # Gets an outbound access token for the Twilio Device in app.js
@@ -66,8 +66,9 @@ defmodule Phone do
     import ExTwiml
 
     twiml do
-      dial(number)
-      say("Goodbye")
+      dial do
+        number(number)
+      end
     end
   end
 

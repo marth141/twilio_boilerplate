@@ -10,6 +10,7 @@ defmodule Phone.Application do
     children = [
       # Starts a worker by calling: Phone.Worker.start_link(arg)
       # {Phone.Worker, arg}
+      {Finch, name: TwilioFinch}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

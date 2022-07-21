@@ -30,7 +30,8 @@ defmodule Phone.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       # {:sibling_app_in_umbrella, in_umbrella: true}
       {:ex_twilio, github: "danielberkompas/ex_twilio"},
-      {:ex_twiml, "~> 2.1.3"}
+      {:ex_twiml, "~> 2.1.3"},
+      {:finch, "~> 0.12"}
     ]
   end
 end
