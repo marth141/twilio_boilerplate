@@ -66,9 +66,7 @@ defmodule Phone do
     import ExTwiml
 
     twiml do
-      dial do
-        number(number)
-      end
+      dial(number)
     end
   end
 

@@ -47,12 +47,37 @@ Hooks.Phone = {
         Device.addListener("incoming", function (call) {
             $("#log").text("Incoming connection from " + call.parameters.From);
             call.accept()
+            document.getElementById("dial-1").addEventListener("click", e => { call.sendDigits("1") })
+            document.getElementById("dial-2").addEventListener("click", e => { call.sendDigits("2") })
+            document.getElementById("dial-3").addEventListener("click", e => { call.sendDigits("3") })
+            document.getElementById("dial-4").addEventListener("click", e => { call.sendDigits("4") })
+            document.getElementById("dial-5").addEventListener("click", e => { call.sendDigits("5") })
+            document.getElementById("dial-6").addEventListener("click", e => { call.sendDigits("6") })
+            document.getElementById("dial-7").addEventListener("click", e => { call.sendDigits("7") })
+            document.getElementById("dial-8").addEventListener("click", e => { call.sendDigits("8") })
+            document.getElementById("dial-9").addEventListener("click", e => { call.sendDigits("9") })
+            document.getElementById("dial-*").addEventListener("click", e => { call.sendDigits("*") })
+            document.getElementById("dial-0").addEventListener("click", e => { call.sendDigits("0") })
+            document.getElementById("dial-#").addEventListener("click", e => { call.sendDigits("#") })
         })
         /* Registers twilio device */
         Device.register()
         /* Adds click event listener to call button */
         document.getElementById("call").addEventListener("click", e => {
-            Device.connect({ params: { dial: this.number() } });
+            Device.connect({ params: { dial: this.number() } }).then(connection => {
+                document.getElementById("dial-1").addEventListener("click", e => { connection.sendDigits("1") })
+                document.getElementById("dial-2").addEventListener("click", e => { connection.sendDigits("2") })
+                document.getElementById("dial-3").addEventListener("click", e => { connection.sendDigits("3") })
+                document.getElementById("dial-4").addEventListener("click", e => { connection.sendDigits("4") })
+                document.getElementById("dial-5").addEventListener("click", e => { connection.sendDigits("5") })
+                document.getElementById("dial-6").addEventListener("click", e => { connection.sendDigits("6") })
+                document.getElementById("dial-7").addEventListener("click", e => { connection.sendDigits("7") })
+                document.getElementById("dial-8").addEventListener("click", e => { connection.sendDigits("8") })
+                document.getElementById("dial-9").addEventListener("click", e => { connection.sendDigits("9") })
+                document.getElementById("dial-*").addEventListener("click", e => { connection.sendDigits("*") })
+                document.getElementById("dial-0").addEventListener("click", e => { connection.sendDigits("0") })
+                document.getElementById("dial-#").addEventListener("click", e => { connection.sendDigits("#") })
+            });
         })
         /* Adds click event listener to hangup button */
         document.getElementById("hangup").addEventListener("click", e => {
@@ -60,7 +85,20 @@ Hooks.Phone = {
         })
         /* Adds click event listener to work queue button */
         document.getElementById("work-queue").addEventListener("click", e => {
-            Device.connect({ params: { dial: this.queue() } });
+            Device.connect({ params: { dial: this.queue() } }).then(connection => {
+                document.getElementById("dial-1").addEventListener("click", e => { connection.sendDigits("1") })
+                document.getElementById("dial-2").addEventListener("click", e => { connection.sendDigits("2") })
+                document.getElementById("dial-3").addEventListener("click", e => { connection.sendDigits("3") })
+                document.getElementById("dial-4").addEventListener("click", e => { connection.sendDigits("4") })
+                document.getElementById("dial-5").addEventListener("click", e => { connection.sendDigits("5") })
+                document.getElementById("dial-6").addEventListener("click", e => { connection.sendDigits("6") })
+                document.getElementById("dial-7").addEventListener("click", e => { connection.sendDigits("7") })
+                document.getElementById("dial-8").addEventListener("click", e => { connection.sendDigits("8") })
+                document.getElementById("dial-9").addEventListener("click", e => { connection.sendDigits("9") })
+                document.getElementById("dial-*").addEventListener("click", e => { connection.sendDigits("*") })
+                document.getElementById("dial-0").addEventListener("click", e => { connection.sendDigits("0") })
+                document.getElementById("dial-#").addEventListener("click", e => { connection.sendDigits("#") })
+            });
         })
     }
 }
