@@ -83,15 +83,13 @@ defmodule Phone do
           passed the moon. Soon after you will see your mother ship.",
             loop: 3
           )
+
+          pause(length: "3")
         end
 
       "2" ->
         twiml do
-          say("To call the planet Broh doe As O G, press 2. To call the planet
-          DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To
-          go back to the main menu, press the star key.",
-            loop: 3
-          )
+          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/planets", method: "POST")
         end
 
       _ ->
@@ -102,7 +100,54 @@ defmodule Phone do
             pause(length: "3")
           end
 
-          redirect("http://f832-66-111-121-28.ngrok.io/twilio/ivr/welcome", method: "POST")
+          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/welcome", method: "POST")
+        end
+    end
+  end
+
+  def phone_tree_planets(conn) do
+    import ExTwiml
+
+    case conn.body_params["Digits"] do
+      "*" ->
+        twiml do
+          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/welcome", method: "POST")
+        end
+
+      "2" ->
+        twiml do
+          say("Hello thank you for calling Broh doe As O G. We are not available good bye.")
+
+          pause(length: "3")
+        end
+
+      "3" ->
+        twiml do
+          say(
+            "Hello thank you for calling Duhgo bah. Yoda is being a swamp hick and won't answer the phone. May the force be with you."
+          )
+
+          pause(length: "3")
+        end
+
+      "4" ->
+        twiml do
+          say(
+            "Hello thank you for calling oober asteroid. We know your location and will be there in 1 million years. Good bye."
+          )
+
+          pause(length: "3")
+        end
+
+      _ ->
+        twiml do
+          gather numDigits: "1" do
+            say("To call the planet Broh doe As O G, press 2. To call the planet
+            DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To
+            go back to the main menu, press the star key.")
+            pause(length: "3")
+            redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/planets", method: "POST")
+          end
         end
     end
   end

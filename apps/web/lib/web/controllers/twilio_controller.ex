@@ -34,6 +34,14 @@ defmodule Web.TwilioController do
     |> text(resp)
   end
 
+  def ivr_planets(conn, _params) do
+    resp = Phone.phone_tree_planets(conn)
+
+    conn
+    |> put_resp_content_type("text/xml")
+    |> text(resp)
+  end
+
   # For dialing a number from the Device.connect parameters
   # Configured in twilio app.js
   def dial(conn, params) do

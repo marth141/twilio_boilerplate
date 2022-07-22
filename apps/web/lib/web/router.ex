@@ -49,6 +49,7 @@ defmodule Web.Router do
     # To behave like an IVR
     # Configed online at Twilio in Twiml App and Phone Number
     post "/ivr/welcome", TwilioController, :ivr_welcome
+    post "/ivr/planets", TwilioController, :ivr_planets
     # To get SMS
     post "/sms", TwilioController, :sms
   end
