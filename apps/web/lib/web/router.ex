@@ -36,7 +36,7 @@ defmodule Web.Router do
     post "/enqueue", TwilioController, :enqueue
     # When dialed, will allow an agent to answer a queue'd call
     # Configed online at Twilio in Twiml App for when Work Queue Button is pressed
-    post "/queue", TwilioController, :queue
+    post "/work_queue", TwilioController, :work_queue
     # To make a call and get some MP3 response
     # Configed online at Twilio in Twiml App for when Call Button is pressed
     post "/mp3", TwilioController, :mp3
