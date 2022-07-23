@@ -164,7 +164,7 @@ defmodule Phone do
   end
 
   # Builds Twiml for working a queue
-  def queue(queue) do
+  def work_queue(queue) do
     import ExTwiml
 
     twiml do
