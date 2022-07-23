@@ -55,18 +55,18 @@ defmodule Phone do
     import ExTwiml
 
     twiml do
-      dial callerid: "+1XXXXXXX" do
+      dial callerId: "+1XXXXXXX" do
         client("jenny")
       end
     end
   end
 
   # Builds Twiml for dialing a specified number
-  def dial(number) do
+  def dial(number_to_dial) do
     import ExTwiml
 
     twiml do
-      dial(number)
+      dial(number_to_dial, callerId: "+19294302984")
     end
   end
 
@@ -89,7 +89,7 @@ defmodule Phone do
 
       "2" ->
         twiml do
-          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/planets", method: "POST")
+          redirect("http://localhost:4000/twilio/api/ivr/planets", method: "POST")
         end
 
       _ ->
@@ -100,7 +100,7 @@ defmodule Phone do
             pause(length: "3")
           end
 
-          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/welcome", method: "POST")
+          redirect("http://localhost:4000/twilio/api/ivr/welcome", method: "POST")
         end
     end
   end
@@ -111,7 +111,7 @@ defmodule Phone do
     case conn.body_params["Digits"] do
       "*" ->
         twiml do
-          redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/welcome", method: "POST")
+          redirect("http://localhost:4000/twilio/api/ivr/welcome", method: "POST")
         end
 
       "2" ->
@@ -146,7 +146,7 @@ defmodule Phone do
             DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To
             go back to the main menu, press the star key.")
             pause(length: "3")
-            redirect("http://c2a6-66-111-121-28.ngrok.io/twilio/api/ivr/planets", method: "POST")
+            redirect("http://localhost:4000/twilio/api/ivr/planets", method: "POST")
           end
         end
     end
