@@ -65,9 +65,9 @@ defmodule Web.TwilioController do
 
   # For dialing a queue from the Device.connect parameters
   # Configured in twilio app.js
-  def queue(conn, params) do
+  def work_queue(conn, params) do
     number = params["dial"]
-    resp = Phone.queue(number)
+    resp = Phone.work_queue(number)
 
     conn
     |> put_resp_content_type("text/xml")
