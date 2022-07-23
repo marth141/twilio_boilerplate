@@ -8,4 +8,5 @@ config :ex_twilio,
   # workspace_sid: System.fetch_env!("TWILIO_WORKSPACE_SID")
 
 config :phone,
-  twiml_app_sid: System.get_env("TWIML_APP_SID")
+  twiml_dialer_app_sid: System.get_env("TWIML_DIALER_APP_SID"),
+  twiml_queue_app_sid: System.get_env("TWIML_QUEUE_APP_SID")

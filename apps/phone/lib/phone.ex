@@ -3,7 +3,7 @@ defmodule Phone do
   Documentation for `Phone`.
   """
 
-  @ngrok "http://15dc-66-111-121-28.ngrok.io"
+  @ngrok "http://418c-66-111-121-28.ngrok.io"
 
   @doc """
   Hello world.
@@ -33,7 +33,9 @@ defmodule Phone do
   # Gets an outbound access token for the Twilio Device in app.js
   def fetch_outgoing_access_token() do
     ExTwilio.Capability.new()
-    |> ExTwilio.Capability.allow_client_outgoing(Application.get_env(:phone, :twiml_app_sid))
+    |> ExTwilio.Capability.allow_client_outgoing(
+      Application.get_env(:phone, :twiml_dialer_app_sid)
+    )
     |> ExTwilio.Capability.token()
   end
 
@@ -45,10 +47,20 @@ defmodule Phone do
   end
 
   # Combination of outbound and inbound access token for the Twilio Device in app.js
-  def fetch_full_access_token() do
+  def fetch_dialer_access_token() do
     ExTwilio.Capability.new()
     |> ExTwilio.Capability.allow_client_incoming("jenny")
-    |> ExTwilio.Capability.allow_client_outgoing(Application.get_env(:phone, :twiml_app_sid))
+    |> ExTwilio.Capability.allow_client_outgoing(
+      Application.get_env(:phone, :twiml_dialer_app_sid)
+    )
+    |> ExTwilio.Capability.token()
+  end
+
+  def fetch_queue_access_token() do
+    ExTwilio.Capability.new()
+    |> ExTwilio.Capability.allow_client_outgoing(
+      Application.get_env(:phone, :twiml_queue_app_sid)
+    )
     |> ExTwilio.Capability.token()
   end
 
@@ -57,7 +69,7 @@ defmodule Phone do
     import ExTwiml
 
     twiml do
-      dial callerId: "+1XXXXXXX" do
+      dial callerId: "+1XXXXXXXXXX" do
         client("jenny")
       end
     end
@@ -68,7 +80,7 @@ defmodule Phone do
     import ExTwiml
 
     twiml do
-      dial(number_to_dial, callerId: "jenny")
+      dial(number_to_dial, callerId: "+19294302984")
     end
   end
 
@@ -141,12 +153,16 @@ defmodule Phone do
           pause(length: "3")
         end
 
+      "5" ->
+        enqueue()
+
       _ ->
         twiml do
           gather numDigits: "1" do
             say("To call the planet Broh doe As O G, press 2. To call the planet
-            DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To
-            go back to the main menu, press the star key.")
+            DuhGo bah, press 3. To call an oober asteroid to your location, press 4.
+            To be put on hold in the support queue, press 5. To go back to the
+            main menu, press the star key.")
             pause(length: "3")
             redirect("#{@ngrok}/twilio/api/ivr/planets", method: "POST")
           end

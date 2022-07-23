@@ -1,17 +1,23 @@
 <script type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<div id="phone" phx-hook="Phone" data-number={@number} data-token={@token} data-queue={@queue}>
-  <button id="call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-    Call
+<div id="dialer" phx-hook="Dialer" data-number={@number} data-token={@dialer_token}>
+  <button id="dialer-call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Call Dialer
   </button>
-  <button id="work-queue" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-    Work Queue
-  </button>
-  <button id="hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-    Hangup
+  <button id="dialer-hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Hangup Dialer
   </button>
 </div>
-<div id="log"></div>
+<div id="dialer-log"></div>
+<div id="queue" phx-hook="Queue" data-token={@queue_token} data-queue={@queue}>
+  <button id="queue-call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Call Queue
+  </button>
+  <button id="queue-hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Hangup Queue
+  </button>
+</div>
+<div id="queue-log"></div>
 <div class="flex gap-8">
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
     <div class="grid grid-cols-3 gap-4 max-w-md">
