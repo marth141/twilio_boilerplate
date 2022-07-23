@@ -3,6 +3,8 @@ defmodule Phone do
   Documentation for `Phone`.
   """
 
+  @ngrok "http://15dc-66-111-121-28.ngrok.io"
+
   @doc """
   Hello world.
 
@@ -89,7 +91,7 @@ defmodule Phone do
 
       "2" ->
         twiml do
-          redirect("http://localhost:4000/twilio/api/ivr/planets", method: "POST")
+          redirect("#{@ngrok}/twilio/api/ivr/planets", method: "POST")
         end
 
       _ ->
@@ -100,7 +102,7 @@ defmodule Phone do
             pause(length: "3")
           end
 
-          redirect("http://localhost:4000/twilio/api/ivr/welcome", method: "POST")
+          redirect("#{@ngrok}/twilio/api/ivr/welcome", method: "POST")
         end
     end
   end
@@ -111,7 +113,7 @@ defmodule Phone do
     case conn.body_params["Digits"] do
       "*" ->
         twiml do
-          redirect("http://localhost:4000/twilio/api/ivr/welcome", method: "POST")
+          redirect("#{@ngrok}/twilio/api/ivr/welcome", method: "POST")
         end
 
       "2" ->
@@ -146,7 +148,7 @@ defmodule Phone do
             DuhGo bah, press 3. To call an oober asteroid to your location, press 4. To
             go back to the main menu, press the star key.")
             pause(length: "3")
-            redirect("http://localhost:4000/twilio/api/ivr/planets", method: "POST")
+            redirect("#{@ngrok}/twilio/api/ivr/planets", method: "POST")
           end
         end
     end
