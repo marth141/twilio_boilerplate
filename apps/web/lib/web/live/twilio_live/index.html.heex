@@ -1,19 +1,19 @@
 <script type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <div id="dialer" phx-hook="Dialer" data-number={@number} data-token={@dialer_token}>
-  <button id="dialer-call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <button id="dialer-call" class={@button_class}>
     Call Dialer
   </button>
-  <button id="dialer-hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <button id="dialer-hangup" class={@button_class}>
     Hangup Dialer
   </button>
 </div>
 <div id="dialer-log"></div>
 <div id="queue" phx-hook="Queue" data-token={@queue_token} data-queue={@queue}>
-  <button id="queue-call" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <button id="queue-call" class={@button_class}>
     Call Queue
   </button>
-  <button id="queue-hangup" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <button id="queue-hangup" class={@button_class}>
     Hangup Queue
   </button>
 </div>
