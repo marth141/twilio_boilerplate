@@ -4,12 +4,12 @@
 * [config/dev.secrets.exs](https://github.com/marth141/twilio_boilerplate/blob/master/config/dev.secrets.exs)
   * Where the secret auth tokens from Twilio get captured
   * Set as system envs e.g. `export TWILIO_ACCOUNT_SID = blahblahblah`
-* [apps/phone/lib/phone.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/phone/lib/phone.ex)
-  * Mostly provides twiml and access tokens with ex_twiml and ex_twilio respectively
 * [apps/web/lib/web/router.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/router.ex)
   * Defines routes for Twilio's Twiml App or Phone Number Webhooks to POST to
 * [apps/web/lib/web/controllers/twilio_controller.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/lib/web/controllers/twilio_controller.ex)
   * Defines what to do with incoming Twilio POSTs
+* [apps/phone/lib/phone.ex](https://github.com/marth141/twilio_boilerplate/blob/master/apps/phone/lib/phone.ex)
+  * Mostly provides twiml and access tokens with ex_twiml and ex_twilio respectively
 * [apps/web/assets/js/app.js](https://github.com/marth141/twilio_boilerplate/blob/master/apps/web/assets/js/app.js)
   * Imports the twilio.min.js from the @twilio/voice-sdk
   * Creates a Phone phoenix hook
