@@ -17,7 +17,7 @@ defmodule Web.TwilioController do
   # For having someone receive a call
   # Configed online at Twilio in Phone Number for when Twilio Number is called
   def receive_call(conn, _params) do
-    resp = Phone.receiver_jenny()
+    resp = Phone.receive_call()
 
     conn
     |> put_resp_content_type("text/xml")
@@ -27,7 +27,7 @@ defmodule Web.TwilioController do
   # For behaving like an IVR
   # Configed online at Twilio in Phone Number for when Twilio Number is called
   def ivr_welcome(conn, _params) do
-    resp = Phone.phone_tree(conn)
+    resp = Phone.ivr_welcome(conn)
 
     conn
     |> put_resp_content_type("text/xml")
@@ -35,7 +35,7 @@ defmodule Web.TwilioController do
   end
 
   def ivr_planets(conn, _params) do
-    resp = Phone.phone_tree_planets(conn)
+    resp = Phone.ivr_planets(conn)
 
     conn
     |> put_resp_content_type("text/xml")
@@ -74,6 +74,7 @@ defmodule Web.TwilioController do
     |> text(resp)
   end
 
+  # For receiving sms
   def sms(conn, _params) do
     IO.inspect(conn)
 

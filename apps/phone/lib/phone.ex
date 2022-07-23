@@ -53,7 +53,7 @@ defmodule Phone do
   end
 
   # Builds Twiml to route a call to the "jenny" incoming client
-  def receiver_jenny() do
+  def receive_call() do
     import ExTwiml
 
     twiml do
@@ -73,7 +73,7 @@ defmodule Phone do
   end
 
   # Builds Twiml for a phone tree
-  def phone_tree(conn) do
+  def ivr_welcome(conn) do
     import ExTwiml
 
     case conn.body_params["Digits"] do
@@ -107,7 +107,7 @@ defmodule Phone do
     end
   end
 
-  def phone_tree_planets(conn) do
+  def ivr_planets(conn) do
     import ExTwiml
 
     case conn.body_params["Digits"] do
