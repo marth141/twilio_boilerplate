@@ -52,6 +52,4 @@ defmodule Web.TwilioLive.Index do
     [{pid, _}] = Registry.lookup(registry, registry_key)
     Phone.SupportQueue.value(pid)
   end
-
-
 end
