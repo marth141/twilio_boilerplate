@@ -172,6 +172,10 @@ defmodule Phone do
 
   # Builds Twiml for implementing a queue
   def enqueue() do
+    [{support_queue_pid, _}] = registry_lookup(Phone.MyRegistry, "support")
+
+    agent_counter_increment(support_queue_pid)
+
     import ExTwiml
 
     twiml do
@@ -188,5 +192,24 @@ defmodule Phone do
         queue(queue)
       end
     end
+  end
+
+  def start_queue_agent(registry, dynamic_supervisor, registry_key, opts \\ []) do
+    registry_value = Keyword.get(opts, :registry_value, nil)
+
+    name = {:via, Registry, {registry, registry_key, registry_value}}
+
+    DynamicSupervisor.start_child(
+      dynamic_supervisor,
+      {Phone.SupportQueue, name: name}
+    )
+  end
+
+  defp agent_counter_increment(pid) do
+    Phone.SupportQueue.increment(pid)
+  end
+
+  defp registry_lookup(registry, registry_key) do
+    Registry.lookup(registry, registry_key)
   end
 end

@@ -8,16 +8,17 @@
     Hangup Dialer
   </button>
 </div>
-<div id="dialer-log"></div>
+<div id="dialer-log" phx-update="ignore"></div>
 <div id="queue" phx-hook="Queue" data-token={@queue_token} data-queue={@queue}>
-  <button id="queue-call" class={@button_class}>
+  <button id="queue-call" phx-click="decrement-queue" class={@button_class}>
     Call Queue
   </button>
   <button id="queue-hangup" class={@button_class}>
     Hangup Queue
   </button>
 </div>
-<div id="queue-log"></div>
+<div id="queue-log" phx-update="ignore"></div>
+<div id="queue-status"><%= @queue_status %> in queue</div>
 <div class="flex gap-8">
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
     <div class="grid grid-cols-3 gap-4 max-w-md">
