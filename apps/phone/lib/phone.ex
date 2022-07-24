@@ -3,7 +3,7 @@ defmodule Phone do
   Documentation for `Phone`.
   """
 
-  @ngrok "http://418c-66-111-121-28.ngrok.io"
+  @ngrok "http://9a46-66-111-121-28.ngrok.io"
 
   @doc """
   Hello world.
@@ -28,22 +28,6 @@ defmodule Phone do
 
   def fetch_workspace_sid() do
     Application.fetch_env!(:ex_twilio, :workspace_sid)
-  end
-
-  # Gets an outbound access token for the Twilio Device in app.js
-  def fetch_outgoing_access_token() do
-    ExTwilio.Capability.new()
-    |> ExTwilio.Capability.allow_client_outgoing(
-      Application.get_env(:phone, :twiml_dialer_app_sid)
-    )
-    |> ExTwilio.Capability.token()
-  end
-
-  # Gets an inbound access token for the Twilio Device in app.js
-  def fetch_incoming_access_token() do
-    ExTwilio.Capability.new()
-    |> ExTwilio.Capability.allow_client_incoming("jenny")
-    |> ExTwilio.Capability.token()
   end
 
   # Combination of outbound and inbound access token for the Twilio Device in app.js
